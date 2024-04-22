@@ -85,7 +85,7 @@ public class DatabaseInit {
 
     public String createTable() {
         StringBuilder createTable = new StringBuilder();
-        createTable.append("CREATE TABLE %s (%s, %s VARCHAR(255), %s VARCHAR(255), %s DATE, %s, %s); \n".formatted(getName_of_table(), uuid ? "uuid VARCHAR(36) PRIMARY KEY" : "id INTEGER PRIMARY KEY", first_name, last_name, date_of_birth, uuid ? id_father +"_uuid VARCHAR(36) NOT NULL" : id_father+"_id INTEGER NOT NULL", uuid ? id_mother+"_uuid VARCHAR(36) NOT NULL" : id_mother+"_id INTEGER NOT NULL"));
+        createTable.append("CREATE TABLE %s (%s, %s VARCHAR(255), %s VARCHAR(255), %s DATE, %s, %s); \n".formatted(getName_of_table(), uuid ? "uuid VARCHAR(36) PRIMARY KEY" : "id INTEGER PRIMARY KEY", first_name, last_name, date_of_birth, uuid ? id_father +" VARCHAR(36)" : id_father+" INTEGER", uuid ? id_mother+" VARCHAR(36)" : id_mother+" INTEGER"));
         createTable.append("ALTER TABLE %s ADD FOREIGN KEY (%s) REFERENCES %s(%s); \n".formatted(getName_of_table(), id_mother, getName_of_table(), uuid ? "uuid" : "id"));
         createTable.append("ALTER TABLE %s ADD FOREIGN KEY (%s) REFERENCES %s(%s); \n".formatted(getName_of_table(), id_father, getName_of_table(), uuid ? "uuid" : "id"));
         return createTable.toString();

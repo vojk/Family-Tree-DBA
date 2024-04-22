@@ -105,7 +105,7 @@ public class Main {
             System.out.println("Upravit? [N/a]");
             if (scanner.nextLine().equalsIgnoreCase("a")) {
                 Scanner select_scanner = new Scanner(System.in);
-                System.out.println("1) Krestni Jmeno, 2) Prijmeni 3) Datum narozeni 4) Matku 5) Otce (cokoliv jineho pro ukonceni editace)");
+                System.out.println("1) Krestni Jmeno, 2) Prijmeni 3) Datum narozeni 4) Matku 5) Otce (jakekoliv jine cislo pro ukonceni editace)");
                 switch (select_scanner.nextInt()) {
                     case 1:
                         System.out.println("Krestni jmeno " + person1.getFirst_name());
